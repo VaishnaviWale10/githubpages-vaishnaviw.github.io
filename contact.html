@@ -1,0 +1,41 @@
+{% extends 'application/basic.html' %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="col-7">
+      <div class="alert alert-primary" role="alert">
+  A simple primary alert with <a href="https://www.brescadc.com/" class="alert-link">O4captain website</a>. Give it a click if you like.
+</div>
+        <div class="alert alert-secondary" role="alert">
+  A simple primary alert with <a href="https://www.theproteinbar.com/" class="alert-link">restaurant</a>. Give it a click if you like.
+</div>
+    </div>
+</div>
+        <div class="container mt-4">
+    <h5>Subscribe to food delivery order</h5>
+    <form method="post" action="/contact/">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" name="first_name" placeholder="Enter First Name">
+                <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name">
+                <input type="email" class="form-control" name="email" placeholder="Enter Email Id">
+                <input type="text" class="form-control" name="feedback" placeholder=" enter your feedback "><br>
+                <input type="submit" value="Subscribe" class="btn btn-primary">
+
+            </div>
+        </div>
+
+    </form>
+</div>
+<div>
+    {% if messages %}
+    {% for i in messages %}
+    {{ i }}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends 'application/basic.html' %}
+
+{% block title %} PAYMENT {% endblock %}
+
+{% block body %}
+
+        <div class="container mt-4">
+    <h5>Pay to our delicious food</h5>
+    <form method="post" action="/payment/">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" name="first_name" placeholder="Enter First Name">
+                <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name">
+                <input type="email" class="form-control" name="email" placeholder="Enter Email Id">
+                <input type="text" class="form-control" name="amount" placeholder=" enter amount  "><br>
+                <input type="submit" value="Cash On Delivery" class="btn btn-primary">
+                <input type="submit" value="Pay Online" class="btn btn-primary">
+
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div>
+    {% if messages %}
+    {% for i in messages %}
+    {{ i }}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

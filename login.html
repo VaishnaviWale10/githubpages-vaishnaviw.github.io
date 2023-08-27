@@ -1,0 +1,117 @@
+{% extends 'application/basic.html' %}
+
+{% block title %} RESERVATION {% endblock %}
+
+{% block body %}
+
+<div>
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+</div>
+<div class="container mt-4">
+    <h4>User Login</h4>
+    <form method="post" action= "/login/">
+        {% csrf_token %}
+        <div class="form-row mt-2">
+            <div class="col-7">
+                 <input type="text" class="form-control" name="username" placeholder="Username">
+                 <input type="password" class="form-control" name="password" placeholder="Password">
+                 <br>
+                 <input type="submit" value="Login" class="btn btn-primary">
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="container mt-3">
+     <h4>Register yourself here</h4>
+    <form action="/login/" method="Post">
+        {% csrf_token %}
+        <div class="fprm-row">
+            <div class="col-7">
+                <input type="text" class="form-control" name="first_name" placeholder="Enter first name">
+                <input type="text" class="form-control" name="last_name" placeholder="Enter last name">
+                <input type="email" class="form-control" name="email" placeholder="Enter email id">
+                <input type="text" class="form-control" name="username" placeholder="Enter User name">
+                <input type="password" class="form-control" name="password" placeholder="Enter password">
+                <input type="password" class="form-control" name="password2" placeholder="Confirm Password">
+                <br>
+                <input type="submit" value="Register" class="btn btn-primary">
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="row">
+        <div class="col-md-5">
+            <h2 class="text-center">Pending Order</h2>
+            <h4 class="text-center"><em>Pending:{{messages|length}} </em> <em>Today:{{messages|length}}</em> <em>Total:{{messages|length}}</em></h4>
+            <table class="table table-bordered table-striped table-hover">
+                <center>
+                <thead class="thead-dark" align="left">
+                    <tr>
+                        <th>SrNo</th>
+                        <th>Type</th>
+                        <th>Pickup</th>
+                        <th>Drop</th>
+
+                    </tr>
+                    <tr>
+                            <td>1</td>
+                            <td>N1</td>
+                            <td>Wakad</td>
+                            <td>Cx</td>
+                    </tr>
+                    <tr>
+                            <td>2</td>
+                            <td>s2</td>
+                            <td>Pune</td>
+                            <td>Cx</td>
+                    </tr>
+                    <tr>
+                            <td>3</td>
+                            <td>N3</td>
+                            <td>Kothrud</td>
+                            <td>Cx</td>
+                    </tr>
+                    <tr>
+                            <td>4</td>
+                            <td>s3</td>
+                            <td>Chinchwad</td>
+                            <td>Cx</td>
+                    </tr>
+                    <tr>
+                            <td>1</td>
+                            <td>N1</td>
+                            <td>Vakad</td>
+                            <td>Cx</td>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for msg in messages %}
+                        <tr>
+                            <td>{{msg.SrNo}}</td>
+                            <td>{{msg.Type}}</td>
+                            <td>{{msg.Pickup}}</td>
+                            <td>{{msg.Drop}}</td>
+                        </tr>
+                    {% endfor%}
+                </tbody>
+                </center>
+            </table>
+        </div>
+    </div>
+</div>
+{% if status %}
+<script>
+    alert("{{status}}");
+</script>
+{% endif %}
+
+{% endblock %}

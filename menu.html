@@ -1,0 +1,39 @@
+{% extends 'application/basic.html' %}
+
+{% block title %} MENU {% endblock %}
+
+{% block body %}
+{%load static%}
+<div class="container my-3">
+ <div class="card" style="width: 18rem;">
+  <img src="{% static 'application/snakky.gif' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Snacks</h5>
+    <p class="card-text">
+
+</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Pav Bhaji	140/-
+        </li>
+    <li class="list-group-item">
+Jain Pav Bhaji	155/-
+        </li>
+    <li class="list-group-item">
+Bombay Vada Pav	102/-</li>
+  </ul>
+  <div class="card-body">
+
+    <a href="http://127.0.0.1:8000/" class="card-link">Home</a>
+    <a href="http://127.0.0.1:8000/payment/" class="/payment/">Payment</a>
+  </div>
+</div>
+<div>
+    {% if messages %}
+    {% for i in messages %}
+    {{ i }}
+    {% endfor %}
+    {% endif %}
+</div>
+</div>
+{% endblock %}

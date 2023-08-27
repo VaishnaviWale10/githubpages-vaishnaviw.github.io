@@ -1,0 +1,32 @@
+{% extends 'application/basic.html' %}
+
+{% block title %} About Us {% endblock %}
+
+{% block body %}
+<h1>Its our restaurant</h1>
+{% load static %}
+<div class="container my-3">
+   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+     <div class="carousel-inner">
+       <div class="carousel-item active">
+         <img src="{% static 'blockdiagram.jpg' %}" class="d-block w-10" alt="..">
+       </div>
+     </div>
+   </div>
+</div>
+  <div class="container mt-4">
+    <div class="alert-success" role="alert">
+    <h3>About Us</h3>
+    <p>
+        Life is still struggling amid the COVID-19 pandemic.
+
+While With the rapid development of mobile app-based services, and skyrocketing demand of online food services, food delivery is now catching on. This leaves UI/UX designers more chances to provide store owners with excellent delivery app design services.
+
+In order to help designers seize the opportunity under this circumstance, we have specifically selected the 15 best delivery app examples and templates to help to develop a deeper understanding of the online delivery app layout and mobile UI designs available.
+
+And our online design tool would be a great assistant to visualize and test your ideas that pop out when browsing these examples and templates.
+    </p>
+    </div>
+
+  </div>
+{% endblock %}
